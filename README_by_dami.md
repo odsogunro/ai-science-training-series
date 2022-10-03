@@ -1,7 +1,14 @@
 ### YYYY-MM-DD
+```
+```
+
+### 2022-10-03
+- NERSC Training 
+    - https://www.nersc.gov/users/training/events/new-user-training-sept2022/
 
 ```
 ```
+
 ### 2022-09-27
 
 MFA SSH on  NERSC,  https://bit.ly/3UeNcGj
