@@ -1,10 +1,23 @@
 ### YYYY-MM-DD
 
+```
+```
+
 ### 2022-10-03
 - NERSC Training 
     - https://www.nersc.gov/users/training/events/new-user-training-sept2022/
 
 ```
+$ ./sshproxy.sh -u osogunro
+
+$ ssh cori.nersc.gov
+
+$ ssh perlmutter.nersc.gov 
+
+$ ssh saul.nersc.gov 
+
+$ ssh dtn.nersc.gov
+
 ```
 
 ### 2022-09-27
@@ -21,7 +34,11 @@ see 1password and google authenticator
 
 ```
 $ scp osogunro@dtn01.nersc.gov:/global/cfs/cdirs/mfa/NERSC-MFA/sshproxy.sh .
+```
 
+- START HERE!
+
+```
 $ ./sshproxy.sh -u osogunro
 
 $ ls -l ~/.ssh/nersc*
