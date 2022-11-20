@@ -5,6 +5,19 @@
 ```
 ```
 
+### 2022-11-19
+- https://machinelearningmastery.com/
+
+```
+```
+
+### 2022-11-12
+- https://www.alcf.anl.gov/support/user-guides/theta/data-science-workflows/jupyter-hub/index.html
+- ...
+
+```
+```
+
 ### 2022-09-22
 
 - [Argonne Service Desk](https://www.anl.gov/contact/service-desk)
