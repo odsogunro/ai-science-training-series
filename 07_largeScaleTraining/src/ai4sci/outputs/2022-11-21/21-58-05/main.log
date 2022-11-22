@@ -1,0 +1,7 @@
+[2022-11-21 21:58:06,301][ai4sci.ilsvrc_dataset][INFO] - input filelist contains 1281167 files, estimated batches per rank 2502
+[2022-11-21 21:58:08,778][ai4sci.ilsvrc_dataset][INFO] - input filelist contains 50000 files, estimated batches per rank 97
+[2022-11-21 21:58:49,853][ai4sci.trainer][INFO] - [0] [0/1: 0 / 1281167 (0%)] epoch=0.0000 dt=37.9162 running_loss=0.0000 batch_loss=0.0149 acc=0.0000 batch_acc=0.0020
+[2022-11-21 21:59:04,708][ai4sci.trainer][INFO] - [0] [0/1: 5120 / 1281167 (0%)] epoch=0.0000 dt=0.7146 running_loss=0.0000 batch_loss=0.0101 acc=0.0001 batch_acc=0.0195
+[2022-11-21 21:59:26,471][ai4sci.trainer][INFO] - [0] [0/1: 10240 / 1281167 (1%)] epoch=0.0000 dt=0.6804 running_loss=0.0001 batch_loss=0.0098 acc=0.0002 batch_acc=0.0215
+[2022-11-21 21:59:49,557][ai4sci.trainer][INFO] - [0] [0/1: 15360 / 1281167 (1%)] epoch=0.0000 dt=0.7236 running_loss=0.0001 batch_loss=0.0096 acc=0.0003 batch_acc=0.0352
+[2022-11-21 22:00:13,247][ai4sci.trainer][INFO] - [0] [0/1: 20480 / 1281167 (2%)] epoch=0.0000 dt=0.8699 running_loss=0.0002 batch_loss=0.0094 acc=0.0004 batch_acc=0.0410

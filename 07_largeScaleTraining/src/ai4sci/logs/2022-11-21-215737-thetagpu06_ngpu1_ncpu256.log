@@ -1,0 +1,71 @@
+{
+    "data": {
+        "handler": "ilsvrc_dataset",
+        "batch_size": 512,
+        "train_filelist": "/grand/projects/ALCFAITP/ilsvrc_train_filelist.txt",
+        "test_filelist": "/grand/projects/ALCFAITP/ilsvrc_val_filelist.txt",
+        "shuffle_buffer": 200000,
+        "reshuffle_each_iteration": true,
+        "num_parallel_readers": 128,
+        "prefetch_buffer_size": 8,
+        "crop_image_size": [
+            256,
+            256
+        ],
+        "num_classes": 1000,
+        "num_channels": 3
+    }
+}
+num labels: 1000
+build dataset /grand/projects/ALCFAITP/ilsvrc_train_filelist.txt
+[[36m2022-11-21 21:58:06,301[0m][[34mai4sci.ilsvrc_dataset[0m][[32mINFO[0m] - input filelist contains 1281167 files, estimated batches per rank 2502[0m
+build dataset /grand/projects/ALCFAITP/ilsvrc_val_filelist.txt
+[[36m2022-11-21 21:58:08,778[0m][[34mai4sci.ilsvrc_dataset[0m][[32mINFO[0m] - input filelist contains 50000 files, estimated batches per rank 97[0m
+thetagpu06:2537179:2537385 [0] NCCL INFO Bootstrap : Using enp226s0:10.230.2.194<0>
+thetagpu06:2537179:2537385 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+thetagpu06:2537179:2537385 [0] NCCL INFO NET/IB : Using [0]mlx5_0:1/IB [1]mlx5_1:1/IB [2]mlx5_2:1/IB [3]mlx5_3:1/IB [4]mlx5_4:1/IB [5]mlx5_5:1/RoCE [6]mlx5_6:1/IB [7]mlx5_7:1/IB [8]mlx5_8:1/IB [9]mlx5_9:1/IB [10]mlx5_10:1/IB [11]mlx5_11:1/RoCE [RO]; OOB enp226s0:10.230.2.194<0>
+thetagpu06:2537179:2537385 [0] NCCL INFO Using network IB
+NCCL version 2.12.12+cuda11.0
+thetagpu06:2537179:2537385 [0] NCCL INFO Setting affinity for GPU 0 to 010000,00000000,00000000,00000000,00010000,00000000
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 00/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 01/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 02/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 03/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 04/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 05/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 06/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 07/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 08/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 09/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 10/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 11/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 12/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 13/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 14/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 15/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 16/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 17/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 18/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 19/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 20/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 21/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 22/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 23/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 24/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 25/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 26/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 27/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 28/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 29/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 30/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Channel 31/32 :    0
+thetagpu06:2537179:2537385 [0] NCCL INFO Trees [0] -1/-1/-1->0->-1 [1] -1/-1/-1->0->-1 [2] -1/-1/-1->0->-1 [3] -1/-1/-1->0->-1 [4] -1/-1/-1->0->-1 [5] -1/-1/-1->0->-1 [6] -1/-1/-1->0->-1 [7] -1/-1/-1->0->-1 [8] -1/-1/-1->0->-1 [9] -1/-1/-1->0->-1 [10] -1/-1/-1->0->-1 [11] -1/-1/-1->0->-1 [12] -1/-1/-1->0->-1 [13] -1/-1/-1->0->-1 [14] -1/-1/-1->0->-1 [15] -1/-1/-1->0->-1 [16] -1/-1/-1->0->-1 [17] -1/-1/-1->0->-1 [18] -1/-1/-1->0->-1 [19] -1/-1/-1->0->-1 [20] -1/-1/-1->0->-1 [21] -1/-1/-1->0->-1 [22] -1/-1/-1->0->-1 [23] -1/-1/-1->0->-1 [24] -1/-1/-1->0->-1 [25] -1/-1/-1->0->-1 [26] -1/-1/-1->0->-1 [27] -1/-1/-1->0->-1 [28] -1/-1/-1->0->-1 [29] -1/-1/-1->0->-1 [30] -1/-1/-1->0->-1 [31] -1/-1/-1->0->-1
+thetagpu06:2537179:2537385 [0] NCCL INFO Connected all rings
+thetagpu06:2537179:2537385 [0] NCCL INFO Connected all trees
+thetagpu06:2537179:2537385 [0] NCCL INFO 32 coll channels, 32 p2p channels, 32 p2p channels per peer
+thetagpu06:2537179:2537385 [0] NCCL INFO comm 0x7f05beffd6d0 rank 0 nranks 1 cudaDev 0 busId 7000 - Init COMPLETE
+[[36m2022-11-21 21:58:49,853[0m][[34mai4sci.trainer[0m][[32mINFO[0m] - [0] [0/1: 0 / 1281167 (0%)] epoch=0.0000 dt=37.9162 running_loss=0.0000 batch_loss=0.0149 acc=0.0000 batch_acc=0.0020[0m
+[[36m2022-11-21 21:59:04,708[0m][[34mai4sci.trainer[0m][[32mINFO[0m] - [0] [0/1: 5120 / 1281167 (0%)] epoch=0.0000 dt=0.7146 running_loss=0.0000 batch_loss=0.0101 acc=0.0001 batch_acc=0.0195[0m
+[[36m2022-11-21 21:59:26,471[0m][[34mai4sci.trainer[0m][[32mINFO[0m] - [0] [0/1: 10240 / 1281167 (1%)] epoch=0.0000 dt=0.6804 running_loss=0.0001 batch_loss=0.0098 acc=0.0002 batch_acc=0.0215[0m
+[[36m2022-11-21 21:59:49,557[0m][[34mai4sci.trainer[0m][[32mINFO[0m] - [0] [0/1: 15360 / 1281167 (1%)] epoch=0.0000 dt=0.7236 running_loss=0.0001 batch_loss=0.0096 acc=0.0003 batch_acc=0.0352[0m
+[[36m2022-11-21 22:00:13,247[0m][[34mai4sci.trainer[0m][[32mINFO[0m] - [0] [0/1: 20480 / 1281167 (2%)] epoch=0.0000 dt=0.8699 running_loss=0.0002 batch_loss=0.0094 acc=0.0004 batch_acc=0.0410[0m

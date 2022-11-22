@@ -1,0 +1,70 @@
+Job ID: 
+Job started at: 2022-11-21-215737
+DIR:/home/osogunro/Projects/ai-science-training-series/07_largeScaleTraining/src/ai4sci
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  Job started at: 2022-11-21-215737 on thetagpu06           ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+The following have been reloaded with a version change:
+  1) openmpi/openmpi-4.0.5 => openmpi/openmpi-4.1.4_ucx-1.12.1_gcc-9.4.0
+
+Found venv at: /home/osogunro/Projects/ai-science-training-series/07_largeScaleTraining/venv/, using that
+./main.sh: line 132: /home/osogunro/Projects/ai-science-training-series/07_largeScaleTraining/venvs/thetaGPU/2022-07-01/bin/activate: No such file or directory
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: pip in /lus/theta-fs0/software/thetagpu/conda/2022-07-01/mconda3/lib/python3.8/site-packages (22.3)
+Collecting pip
+  Downloading pip-22.3.1-py3-none-any.whl (2.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 96.0 MB/s eta 0:00:00
+Installing collected packages: pip
+  WARNING: The scripts pip, pip3, pip3.10 and pip3.8 are installed in '/home/osogunro/.local/thetagpu/conda/2022-07-01/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+Successfully installed pip-22.3.1
+
+[notice] A new release of pip available: 22.3 -> 22.3.1
+[notice] To update, run: pip install --upgrade pip
+Defaulting to user installation because normal site-packages is not writeable
+Obtaining file:///home/osogunro/Projects/ai-science-training-series/07_largeScaleTraining
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: ai4sci
+  Building editable for ai4sci (pyproject.toml): started
+  Building editable for ai4sci (pyproject.toml): finished with status 'done'
+  Created wheel for ai4sci: filename=ai4sci-0.0.0-0.editable-py3-none-any.whl size=1175 sha256=7dc4cf076da5ceaaa497057b0b8d6dde42755c0928a4841ba2761c1828880197
+  Stored in directory: /tmp/pip-ephem-wheel-cache-r7agxy0f/wheels/df/c0/fe/505f8748218cc4433a94e88ebb115a8afe8e118482ff80e24e
+Successfully built ai4sci
+Installing collected packages: ai4sci
+Successfully installed ai4sci-0.0.0
+WIDTH: 123
+DIR=/home/osogunro/Projects/ai-science-training-series/07_largeScaleTraining/src/ai4sci
+MAIN=/home/osogunro/Projects/ai-science-training-series/07_largeScaleTraining/src/ai4sci/main.py
+PARENT=/home/osogunro/Projects/ai-science-training-series/07_largeScaleTraining/src
+ROOT=/home/osogunro/Projects/ai-science-training-series/07_largeScaleTraining
+LOGDIR=/home/osogunro/Projects/ai-science-training-series/07_largeScaleTraining/src/ai4sci/logs
+LOGFILE=/home/osogunro/Projects/ai-science-training-series/07_largeScaleTraining/src/ai4sci/logs/2022-11-21-215737-thetagpu06_ngpu1_ncpu256.log
+IBV_FORK_SAFE=
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃  STARTING A NEW RUN ON 1 GPUs 256  ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┃  - DATE: 2022-11-21-215737
+┃  - NCPUS: 256
+┃  - NRANKS: 1
+┃  - NGPUS PER RANK: 1
+┃  - NGPUS TOTAL: 1
+┃  - MAIN: /home/osogunro/Projects/ai-science-training-series/07_largeScaleTraining/src/ai4sci/main.py
+┃  - Writing logs to /home/osogunro/Projects/ai-science-training-series/07_largeScaleTraining/src/ai4sci/logs/2022-11-21-215737-thetagpu06_ngpu1_ncpu256.log
+┃  - python3: /lus/theta-fs0/software/thetagpu/conda/2022-07-01/mconda3/bin/python3
+┃  - mpirun: /lus/theta-fs0/software/thetagpu/openmpi/openmpi-4.1.4_ucx-1.12.1_gcc-9.4.0/bin/mpirun
+┃  - ai4sci: /home/osogunro/Projects/ai-science-training-series/07_largeScaleTraining/src/ai4sci/__init__.py
+┃  - exec: /lus/theta-fs0/software/thetagpu/openmpi/openmpi-4.1.4_ucx-1.12.1_gcc-9.4.0/bin/mpirun --verbose     -n 1     --hostfile /var/tmp/cobalt.10116400     -npernode 1     -x PYTHONUSERBASE     -x PYTHONSTARTUP     -x http_proxy     -x https_proxy     -x PATH     -x LD_LIBRARY_PATH /lus/theta-fs0/software/thetagpu/conda/2022-07-01/mconda3/bin/python3 /home/osogunro/Projects/ai-science-training-series/07_largeScaleTraining/src/ai4sci/main.py batch_size=512
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[thetagpu06:2537169] Warning: could not find environment variable "PYTHONSTARTUP"
+2022-11-21 21:58:08.974438: W tensorflow/core/grappler/costs/op_level_cost_estimator.cc:690] Error in PredictCost() for the op: op: "CropAndResize" attr { key: "T" value { type: DT_UINT8 } } attr { key: "extrapolation_value" value { f: 0 } } attr { key: "method" value { s: "bilinear" } } inputs { dtype: DT_UINT8 shape { dim { size: 1 } dim { size: -5 } dim { size: -6 } dim { size: 3 } } } inputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: 4 } } } inputs { dtype: DT_INT32 shape { dim { size: -2 } } } inputs { dtype: DT_INT32 shape { dim { size: 2 } } } device { type: "CPU" vendor: "AuthenticAMD" model: "241" frequency: 2245 num_cores: 2 environment { key: "cpu_instruction_set" value: "SSE, SSE2, SSE3" } environment { key: "eigen" value: "3.4.90" } l1_cache_size: 32768 l2_cache_size: 524288 l3_cache_size: 268435456 memory_size: 268435456 } outputs { dtype: DT_FLOAT shape { dim { size: -2 } dim { size: -10 } dim { size: -11 } dim { size: 3 } } }
