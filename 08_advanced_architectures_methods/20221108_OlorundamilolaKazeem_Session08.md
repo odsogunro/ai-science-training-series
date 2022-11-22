@@ -7,7 +7,7 @@ Homework This Week: Submit a paragraph about:
     - Answer: AI can be used towards Speech Keyword Recognition
 
 - What is the task?
-    - Answer: 
+    - Answer: The task is Keyword Recognition from speech audio data 
  
 - What kind of data would you use?
     - Answer: [Google's Speech Commands Dataset](https://ai.googleblog.com/2017/08/launching-speech-commands-dataset.html)
