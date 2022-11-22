@@ -31,7 +31,7 @@ t0 = time.time()
 parser = argparse.ArgumentParser(description='TensorFlow MNIST Example')
 parser.add_argument('--batch_size', type=int, default=256, metavar='N',
                     help='input batch size for training (default: 256)')
-parser.add_argument('--epochs', type=int, default=16, metavar='N',
+parser.add_argument('--epochs', type=int, default=16, metavar='EP',
                     help='number of epochs to train (default: 16)')
 parser.add_argument('--lr', type=float, default=0.01, metavar='LR',
                     help='learning rate (default: 0.01)')
@@ -78,9 +78,10 @@ else:
     # if gpus:
     #   tf.config.experimental.set_visible_devices(gpus[hvd.local_rank()], 'GPU')
     if gpus:
+        local_rank = hvd.local_rank()
         print("physical devices: %d" % len(gpus))
-        print("local rank: %d" % hvd.local_rank())
-        tf.config.experimental.set_visible_devices(gpus[hvd.local_rank()], 'GPU')
+        print("local rank: %d" % local_rank)
+        tf.config.experimental.set_visible_devices(gpus[local_rank], 'GPU')
 
 
 #---------------------------------------------------
