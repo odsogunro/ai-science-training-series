@@ -177,9 +177,11 @@ metrics['valid_loss'] = []
 metrics['time_per_epochs'] = []
 
 for ep in range(args.epochs):
+    
     training_loss = 0.0
     training_acc = 0.0
     tt0 = time.time()
+    
     for batch, (images, labels) in enumerate(dataset.take(nstep)):
         loss_value, acc = training_step(images, labels)
         
@@ -210,11 +212,14 @@ for ep in range(args.epochs):
     # Testing
     test_acc = 0.0
     test_loss = 0.0
+    
     for batch, (images, labels) in enumerate(test_dset.take(ntest_step)):
         loss_value, acc = validation_step(images, labels)
         test_acc += acc/ntest_step
         test_loss += loss_value/ntest_step
+    
     tt1 = time.time()
+    
     print('E[%d], train Loss: %.6f, training Acc: %.3f, val loss: %.3f, val Acc: %.3f\t Time: %.3f seconds' % (ep, training_loss, training_acc, test_loss, test_acc, tt1 - tt0))
     metrics['train_acc'].append(training_acc.numpy())
     metrics['train_loss'].append(training_loss.numpy())
@@ -226,6 +231,8 @@ for ep in range(args.epochs):
 if (hvd.rank()==0):
     checkpoint.save(checkpoint_dir)
 
-np.savetxt("metrics.csv", np.array([metrics['train_acc'], metrics['train_loss'], metrics['valid_acc'], metrics['valid_loss'], metrics['time_per_epochs']]).transpose(), delimiter=', ')
+filename_csv = "metrics_for_" + str(hvd.size()) + "_gpus.csv"
+print("METRICS_CSV:>>>> ", filename_csv)
+np.savetxt(filename_csv, np.array([metrics['train_acc'], metrics['train_loss'], metrics['valid_acc'], metrics['valid_loss'], metrics['time_per_epochs']]).transpose(), delimiter=', ')
 t1 = time.time()
 print("Total training time: %s seconds" %(t1 - t0))
