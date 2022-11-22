@@ -3,8 +3,8 @@
 */resnet34
 *checkpoints/
 *.cobaltlog
-*logs/
-*outputs/
+# *logs/
+# *outputs/
 
 # Packages #
 ############
