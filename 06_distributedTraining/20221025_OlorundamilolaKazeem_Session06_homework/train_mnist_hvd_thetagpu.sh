@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-#COBALT -n 8
+#COBALT -n 1
 #COBALT -t 60
 #COBALT -A ALCFAITP
 #COBALT -q full-node

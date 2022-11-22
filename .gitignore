@@ -2,7 +2,7 @@
 */core
 */resnet34
 *checkpoints/
-
+*.cobaltlog
 
 # Packages #
 ############
