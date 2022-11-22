@@ -15,13 +15,16 @@
 #
 # questions? Taylor Childers, jchilders@anl.gov
 
-import os,glob
+import os, glob
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 os.environ['TF_CPP_MIN_VLOG_LEVEL'] = '3'
+
 import tensorflow as tf
 from tensorflow.python.profiler import trace
+
 import numpy as np
 import xml.etree.ElementTree as ET
+
 # import horovod.tensorflow as hvd
 # hvd.init()
 
@@ -77,19 +80,25 @@ def get_label_tables(config, train_filelist):
 
    # this extracts the path up to: /.../ILSVRC/Data/CLS-LOC/train/
    label_path = '/'.join(filepath.split('/')[:-2])
+   
    # this globs for all the directories like "n02537312" to get 
    # list of the string labels
    labels = glob.glob(label_path + os.path.sep + '*')
+   
    if config['hvd'].rank() == 0:
       print(f'num labels: {len(labels)}')
+   
    # this removes the leading path from the label directories
    labels = [os.path.basename(i) for i in labels]
    # create a list of integers as long as the number of labels
    hash_values = tf.range(len(labels))
+   
    # convert python list of strings to a tensorflow vector
    hash_keys = tf.constant(labels, dtype=tf.string)
+   
    # build a key-value lookup using Tensorflow tools
    labels_hash_init = tf.lookup.KeyValueTensorInitializer(hash_keys, hash_values)
+   
    # build a lookup table based on those key-value pairs (returns -1 for undefined keys)
    labels_hash = tf.lookup.StaticHashTable(labels_hash_init, -1)
 
@@ -133,8 +142,7 @@ def build_dataset_from_filelist(config,filelist_filename):
 
    # run 'load_image_label_bb' on each input image file, process multiple files in parallel
    # this function opens the JPEG, converts it to a tensorflow vector and gets the truth class label
-   ds = filelist.map(load_image_label_bb,
-                     num_parallel_calls=config['data']['num_parallel_readers'])
+   ds = filelist.map(load_image_label_bb, num_parallel_calls=config['data']['num_parallel_readers'])
                      
    # unbatch called because some JPEGs result in more than 1 image returned
    ds = ds.apply(tf.data.Dataset.unbatch)
@@ -196,8 +204,8 @@ def get_bounding_boxes(filename):
    filename = bytes.decode(filename.numpy())
    try:
       with tf.profiler.experimental.Trace('read_xml'):
-         tree = ET.parse(filename)
-         root = tree.getroot()
+            tree = ET.parse(filename)
+            root = tree.getroot()
 
       img_size = root.find('size')
       img_width = int(img_size.find('width').text)
@@ -224,18 +232,20 @@ def get_bounding_boxes(filename):
 
 
 if __name__ == '__main__':
+   
    # parse command line
    import argparse,json,time
    parser = argparse.ArgumentParser(description='test this')
    parser.add_argument('-c', '--config', dest='config_filename',
-                       help='configuration filename in json format',
-                       required=True)
+                        help='configuration filename in json format', required=True)
    parser.add_argument('-l','--logdir', dest='logdir',
-                       help='log output directory',default='logdir')
+                        help='log output directory', default='logdir')
    parser.add_argument('-n','--nsteps', dest='nsteps',
-                       help='number of steps to run',default=10,type=int)
-   parser.add_argument('--interop',type=int,help='set Tensorflow "inter_op_parallelism_threads" session config varaible ',default=None)
-   parser.add_argument('--intraop',type=int,help='set Tensorflow "intra_op_parallelism_threads" session config varaible ',default=None)
+                        help='number of steps to run', default=10,type=int)
+   parser.add_argument('--interop',type=int, 
+                        help='set Tensorflow "inter_op_parallelism_threads" session config varaible', default=None)
+   parser.add_argument('--intraop',type=int, 
+                        help='set Tensorflow "intra_op_parallelism_threads" session config varaible ',default=None)
 
    args = parser.parse_args()
 
@@ -243,7 +253,7 @@ if __name__ == '__main__':
    for gpu in gpus:
       tf.config.experimental.set_memory_growth(gpu, True)
    if gpus:
-      tf.config.experimental.set_visible_devices(gpus[hvd.local_rank()], 'GPU')
+       tf.config.experimental.set_visible_devices(gpus[hvd.local_rank()], 'GPU')
 
    print("GPUs Available: %s" % tf.config.get_visible_devices('GPU'))
 
@@ -260,6 +270,7 @@ if __name__ == '__main__':
    # use the tensorflow profiler here
    if hvd.rank() == 0:
       tf.profiler.experimental.start(args.logdir)
+   
    # call function to build dataset objects
    # both of the returned objects are tf.dataset.Dataset objects
    trainds, testds = get_datasets(config)
@@ -270,13 +281,15 @@ if __name__ == '__main__':
       # profile data pipeline
       with tf.profiler.experimental.Trace('train_%02d' % i, step_num=i, _r=1):
          inputs,labels = next(trainds)
-      
-      # print('batch_number = %s input shape = %s    labels shape = %s' %(i,inputs.shape,labels.shape))
-      # print('batch_number = %s labels = %s' %(i,labels))
+
+   # print('batch_number = %s input shape = %s    labels shape = %s' %(i,inputs.shape,labels.shape))
+   # print('batch_number = %s labels = %s' %(i,labels))
    # measure performance in images per second
    duration = time.time() - start
    if hvd.rank() == 0:
       tf.profiler.experimental.stop()
+   
    images = config['data']['batch_size'] * args.nsteps
+   
    if hvd.rank() == 0:
       print('imgs/sec = %5.2f' % ((images/duration)*hvd.size()))

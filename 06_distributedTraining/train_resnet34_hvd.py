@@ -26,10 +26,12 @@ use_profiler = True
 import tensorflow as tf
 from tensorflow.python.profiler import trace
 
-# HVD-1 - initialize Horovd
+# HVD-1 - initialize Horovod
 import horovod.tensorflow as hvd
+
 hvd.init()
 print("# I am rank %d of %d" %(hvd.rank(), hvd.size()))
+
 parallel_threads = parallel_threads//hvd.size()
 os.environ['OMP_NUM_THREADS'] = str(parallel_threads)
 num_parallel_readers = parallel_threads

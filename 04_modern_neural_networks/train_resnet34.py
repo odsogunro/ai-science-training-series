@@ -7,7 +7,8 @@ os.environ["TF_XLA_FLAGS"] = "--tf_xla_auto_jit=2"
 
 import tensorflow as tf
 
-
+# TODO - DAMI, homework: DONE
+import matplotlib.pyplot as plt
 
 #########################################################################
 # Here's the Residual layer from the first half again:
@@ -219,7 +220,18 @@ def training_step(network, optimizer, images, labels):
 
     return loss, accuracy
 
+# TODO - DAMI, homework: DONE
+steps = []
+losses = []
+accuracies = []
+
 def train_epoch(i_epoch, step_in_epoch, train_ds, val_ds, network, optimizer, BATCH_SIZE, checkpoint):
+    
+#     # TODO - DAMI, homework: DONE
+#     steps = []
+#     losses = []
+#     accuracies = []
+    
     # Here is our training loop!
 
     steps_per_epoch = int(1281167 / BATCH_SIZE)
@@ -235,6 +247,15 @@ def train_epoch(i_epoch, step_in_epoch, train_ds, val_ds, network, optimizer, BA
         end = time.time()
         images_per_second = BATCH_SIZE / (end - start)
         print(f"Finished step {step_in_epoch.numpy()} of {steps_per_epoch} in epoch {i_epoch.numpy()},loss={loss:.3f}, acc={acc:.3f} ({images_per_second:.3f} img/s).")
+        
+        # TODO - DAMI, homework: DONE
+        steps.append(step_in_epoch.numpy())
+        losses.append(loss.numpy())
+        accuracies.append(acc.numpy())
+        
+        # print(*steps, sep=", ")
+        # print(*losses, sep=", ")
+        # print(*accuracies, sep=", ")
         start = time.time()
 
     # Save the network after every epoch:
@@ -254,7 +275,7 @@ def train_epoch(i_epoch, step_in_epoch, train_ds, val_ds, network, optimizer, BA
 
     print(f"Validation accuracy after epoch {i_epoch.numpy()}: {mean_accuracy:.4f}.")
 
-
+    return steps, losses, accuracies
 
 def prepare_data_loader(BATCH_SIZE):
 
@@ -294,13 +315,24 @@ def prepare_data_loader(BATCH_SIZE):
 
     return train_ds, val_ds
 
+# TODO - DAMI, homework: DONE
+def plot_steps_vs_whatever(x, y, vs_what="none"):
+    
+    steps_here = "steps in epoch"
+    
+    plt.plot(x, y)
+    plt.xlabel(steps_here)
+    plt.ylabel(vs_what)
+    plt.show()
+    plt.savefig(steps_here + "_vs_" + vs_what + ".pdf")
+    plt.close()
 
 def main():
     #########################################################################
     # Here's some configuration:
     #########################################################################
     BATCH_SIZE = 256
-    N_EPOCHS = 10
+    N_EPOCHS = 1 #10
 
     train_ds, val_ds = prepare_data_loader(BATCH_SIZE)
 
@@ -337,9 +369,12 @@ def main():
         checkpoint.restore(latest_checkpoint)
 
     while epoch < N_EPOCHS:
-        train_epoch(epoch, step_in_epoch, train_ds, val_ds, network, optimizer, BATCH_SIZE, checkpoint)
+        steps, losses, accuracies = train_epoch(epoch, step_in_epoch, train_ds, val_ds, network, optimizer, BATCH_SIZE, checkpoint)
         epoch.assign_add(1)
         step_in_epoch.assign(0)
+            
+    plot_steps_vs_whatever(steps, losses, vs_what="losses")
+    plot_steps_vs_whatever(steps, accuracies, vs_what="accuracies")
 
 if __name__ == "__main__":
     main()

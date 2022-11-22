@@ -1,0 +1,49 @@
+
+8f9fce4 (HEAD -> main) HEAD@{0}: reset: moving to HEAD@{3}
+43c1c86 (origin/main, origin/HEAD) HEAD@{1}: reset: moving to HEAD~1
+8f9fce4 (HEAD -> main) HEAD@{2}: reset: moving to HEAD~1
+c1e58a5 HEAD@{3}: revert: Revert "added and updated 04 session with homework to submit"
+8f9fce4 (HEAD -> main) HEAD@{4}: commit: added and updated 04 session with homework to submit
+43c1c86 (origin/main, origin/HEAD) HEAD@{5}: commit: updates up to session 03 again
+8604539 HEAD@{6}: commit: updates up to session 03
+eeed56d HEAD@{7}: pull: Fast-forward
+bdf0723 HEAD@{8}: commit: added 01_machineLearning/2022-09-20_OlorundamilolaKazeem_Session01.ipynb and updates
+074a9c5 HEAD@{9}: commit: added 01_machineLearning/2022-09-20_OlorundamilolaKazeem_Session01.ipynb
+d850b86 HEAD@{10}: commit: added hw example notebook
+4955464 HEAD@{11}: commit: added homework for session 01
+01775db HEAD@{12}: clone: from https://github.com/odsogunro/ai-science-training-series.git
+
+
+(conda/2021-09-22/base) osogunro@thetalogin5:~/Projects/ai-science-training-series> git commit -m "added and updated 04 session with homework to submit"
+[main 8f9fce4] added and updated 04 session with homework to submit
+ 7 files changed, 1382 insertions(+), 1497 deletions(-)
+ rewrite 03_neural_networks_tensorflow/2022-10-04_OlorundamilolaKazeem_Session03.ipynb (72%)
+ create mode 100644 04_modern_neural_networks/20151215_DeepResidualLearningForImageRecognition_1512.03385.pdf
+ rewrite 04_modern_neural_networks/ResidualConvolutions.ipynb (88%)
+ create mode 100644 04_modern_neural_networks/core
+(conda/2021-09-22/base) osogunro@thetalogin5:~/Projects/ai-science-training-series> git push
+Enumerating objects: 19, done.
+Counting objects: 100% (19/19), done.
+Delta compression using up to 32 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (11/11), 37.02 MiB | 16.54 MiB/s, done.
+Total 11 (delta 7), reused 1 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (7/7), completed with 7 local objects.
+
+remote: error: Trace: fae6ce8cc2d56a33ed912ee2bbb458618b93cf434ed917d3b5b7d389c13b0bf2
+
+remote: error: See http://git.io/iEPt8g for more information.
+
+remote: error: File 04_modern_neural_networks/core is 997.12 MB; this exceeds GitHub's file size limit of 100.00 MB
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.
+
+To https://github.com/odsogunro/ai-science-training-series.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/odsogunro/ai-science-training-series.git'
+
+(conda/2021-09-22/base) osogunro@thetalogin5:~/Projects/ai-science-training-series> git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean

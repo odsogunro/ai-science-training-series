@@ -5,6 +5,14 @@
 ```
 ```
 
+### 2022-11-20
+
+- https://www.baeldung.com/git-remove-file-commit-history
+
+```
+$ git filter-branch --tree-filter 'rm -f core' HEAD
+```
+
 ### 2022-11-19
 - https://machinelearningmastery.com/
 
